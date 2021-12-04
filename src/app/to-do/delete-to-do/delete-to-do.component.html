@@ -1,1 +1,20 @@
-<p>delete-to-do works!</p>
+<p>ToDo Delete</p>
+
+<div>
+  <div>Title</div>
+  <div>{{currentToDo?.Title}}</div>
+</div>
+<div>
+  <div>Date</div>
+  <div>{{currentToDo?.Date}}</div>
+</div>
+<div>
+  <div>Category</div>
+  <div>{{currentToDo?.Category?.Title}}</div>
+</div>
+<div>
+  <div>Description</div>
+  <div>{{currentToDo?.Description}}</div>
+</div>
+
+<input type="button" value="delete" (click)="delete()" />
