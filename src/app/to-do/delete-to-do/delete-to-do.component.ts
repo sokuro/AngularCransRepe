@@ -34,4 +34,12 @@ export class DeleteToDoComponent implements OnInit {
     });
   }
 
+  delete() {
+    if (this.currentToDo != null) {
+      this.http.delete('https://todoapp42.azurewebsites.net/api/todoes/' + this.currentToDo.Id).subscribe(result => {
+          this.router.navigate(["/"]);
+        }, error => console.error(error)
+      );
+    }
+  }
 }
