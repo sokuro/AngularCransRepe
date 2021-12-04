@@ -1,1 +1,18 @@
-<p>create-to-do works!</p>
+<p> Create a ToDo </p>
+
+<div>
+  <div>Title</div>
+  <div><input type="text" [(ngModel)]="currentToDo.Title" /></div>
+</div>
+
+<div>
+  <div>Date</div>
+  <div><input type="datetime-local" [(ngModel)]="currentToDo.Date" /></div>
+</div>
+
+<div>
+  <div>Description</div>
+  <div><input type="text" [(ngModel)]="currentToDo.Description" /></div>
+</div>
+
+<input type="button" value="save" (click)="save()" />

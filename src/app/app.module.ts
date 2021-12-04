@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ToDoComponent } from './to-do/to-do.component';
 import { CreateToDoComponent } from './to-do/create-to-do/create-to-do.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreateToDoComponent } from './to-do/create-to-do/create-to-do.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
