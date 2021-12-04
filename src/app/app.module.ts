@@ -8,13 +8,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { ToDoComponent } from './to-do/to-do.component';
 import { CreateToDoComponent } from './to-do/create-to-do/create-to-do.component';
 import { FormsModule } from "@angular/forms";
+import { DeleteToDoComponent } from './to-do/delete-to-do/delete-to-do.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ToDoComponent,
-    CreateToDoComponent
+    CreateToDoComponent,
+    DeleteToDoComponent
   ],
   imports: [
     BrowserModule,
