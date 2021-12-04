@@ -32,4 +32,10 @@ export class EditToDoComponent implements OnInit {
     });
   }
 
+  save() {
+    this.http.put<IToDo>('https://todoapp42.azurewebsites.net/api/todoes/' + this.currentToDo?.Id, this.currentToDo).subscribe(result => {
+        this.router.navigate(["/"]);
+      }, error => console.error(error)
+    );
+  }
 }
