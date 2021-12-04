@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { IToDo, ToDo } from "../models/to-do";
-import { Category } from "../models/category";
+import { ToDo } from "../models/to-do";
+import { ToDoRepositoryService } from "../services/to-do-repository.service";
 
 @Component({
   selector: 'app-to-do',
@@ -12,25 +11,10 @@ export class ToDoComponent implements OnInit {
 
   public ToDoItems: ToDo[] | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private repository:ToDoRepositoryService) { }
 
   ngOnInit(): void {
-    this.http.get<IToDo[]>('https://todoapp42.azurewebsites.net/api/todoes') .subscribe(result => {
-      this.ToDoItems = result.map(( receivedData:IToDo) =>{
-        return new ToDo(
-          receivedData.id,
-          receivedData.title,
-          receivedData.date,
-          receivedData.categoryId,
-          new Category(
-            receivedData.category?.id,
-            receivedData.category?.title,
-            receivedData.category?.color ),
-          receivedData.description
-        )
-      } );
-    }, error => console.error(error));
-
+    this.repository.getToDoes().subscribe(result => this.ToDoItems = result);
   }
 
 }
